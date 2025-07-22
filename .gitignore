@@ -1,0 +1,6 @@
+*.tar.gz
+.DS_Store
+Container-Root/nemo/kubernetes
+Container-Root/aws
+Container-Root/kubectl
+Container-Root/*.zip
