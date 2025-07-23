@@ -9,7 +9,11 @@ source ./.env
 
 # Login to container registry
 echo "Logging in to $REGISTRY ..."
-CMD="aws ecr get-login-password | docker login --username AWS --password-stdin $REGISTRY"
+
+P=$(aws ecr get-login-password)
+
+CMD="docker login --username AWS --password $P $REGISTRY"
+verbose=false
 if [ ! "$verbose" == "false" ]; then echo -e "\n${CMD}\n"; fi
 eval "$CMD"
 
