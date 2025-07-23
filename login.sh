@@ -13,19 +13,18 @@ echo "Logging in to $REGISTRY ..."
 export AWS_REGION=${AWS_REGION}
 echo "AWS_REGION=${AWS_REGION}"
 
-export ENDPOINT="https://api.ecr.${AWS_REGION}.amazonaws.com"
-echo "ENDPOINT=${ENDPOINT}"
+#export ENDPOINT="https://api.ecr.${AWS_REGION}.amazonaws.com"
+#echo "ENDPOINT=${ENDPOINT}"
 
 export AWS_DEFAULT_REGION=$AWS_REGION
 export REGION=$AWS_REGION
 
-P=$(aws ecr get-login-password --endpoint-url $ENDPOINT)
+#P=$(aws ecr get-login-password --endpoint-url $ENDPOINT)
 
-echo "Cred: $P"
 echo "REGISTRY: $REGISTRY"
 
-CMD="docker login --username AWS --password $P $REGISTRY"
-verbose=false
+CMD="aws ecr get-login-password | docker login --username AWS --password-stdin $REGISTRY"
+#verbose=false
 if [ ! "$verbose" == "false" ]; then echo -e "\n${CMD}\n"; fi
 eval "$CMD"
 
