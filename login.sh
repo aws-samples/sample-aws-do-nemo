@@ -10,9 +10,11 @@ source ./.env
 # Login to container registry
 echo "Logging in to $REGISTRY ..."
 
-ENDPOINT="https://api.ecr.${AWS_REGION}.amazonaws.com"
-
+export AWS_REGION=${AWS_REGION}
 echo "AWS_REGION=${AWS_REGION}"
+
+export ENDPOINT="https://api.ecr.${AWS_REGION}.amazonaws.com"
+echo "ENDPOINT=${ENDPOINT}"
 
 export AWS_DEFAULT_REGION=$AWS_REGION
 export REGION=$AWS_REGION
