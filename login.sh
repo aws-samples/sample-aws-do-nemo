@@ -12,7 +12,15 @@ echo "Logging in to $REGISTRY ..."
 
 ENDPOINT="https://api.ecr.${AWS_REGION}.amazonaws.com"
 
+echo "AWS_REGION=${AWS_REGION}"
+
+export AWS_DEFAULT_REGION=$AWS_REGION
+export REGION=$AWS_REGION
+
 P=$(aws ecr get-login-password --endpoint-url $ENDPOINT)
+
+echo "Cred: $P"
+echo "REGISTRY: $REGISTRY"
 
 CMD="docker login --username AWS --password $P $REGISTRY"
 verbose=false
