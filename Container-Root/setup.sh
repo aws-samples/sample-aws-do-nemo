@@ -102,10 +102,10 @@ pip install skypilot[kubernetes]==$SKYPILOT_VERSION
 # Install NeMo-Run
 pip install --force-reinstall git+https://github.com/NVIDIA/NeMo-Run.git@4d056535b5cce475b0536243e2cefcfa3897eee8
 
-# Get kubernetes folder from https://github.com/aws-samples/awsome-distributed-training/tree/main/3.test_cases/megatron/nemo/kubernetes
+# Get kubernetes folder from https://github.com/awslabs/awsome-distributed-ai/tree/main/examples/training/nemo/kubernetes
 # This is done in build.sh in order to provide a copy of the code in the container project tree.
 #cd /tmp
-#git clone https://github.com/aws-samples/awsome-distributed-training/tree/main/3.test_cases/megatron/nemo/kubernetes 
+#git clone https://github.com/awslabs/awsome-distributed-ai/tree/main/examples/training/nemo/kubernetes 
 #cp -rf /tmp/awsome-distributed-training/tree/main/3.test_cases/megatron/nemo/kubernetes /nemo
 #echo "Cloned from https://github.com/aws-samples/aws-distributed-training/tree/main/3.test_cases/megatron/nemo/kubernetes  on $(date)" > /nemo/kubernetes/info.txt
 #rm -rf /tmp/awsome-distributed-training
